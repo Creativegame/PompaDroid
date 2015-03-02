@@ -34,15 +34,32 @@ public:
   CC_SYNTHESIZE_RETAIN(cocos2d::Action*, _knockoutAction, KnockoutAction);
   CC_SYNTHESIZE_RETAIN(cocos2d::Action*, _walkAction, WalkAction);
 
+  // measurements
   CC_SYNTHESIZE(float, _centerToSides, CenterToSides);
   CC_SYNTHESIZE(float, _centerToBottom, CenterToBottom);
   CC_SYNTHESIZE(cocos2d::Vec2, _desiredPosition, DesiredPosition);
 
+  // states
   CC_SYNTHESIZE(ActionState, _currentState, ActionState);
+
+  // attributes
   CC_SYNTHESIZE(float, _velocity, Velocity);     // Current Velocity
   CC_SYNTHESIZE(cocos2d::Point, _direction, Direction);   // Moving direction.(Vector)
   CC_SYNTHESIZE(unsigned int, _hp, HP);                   // HP
   CC_SYNTHESIZE(unsigned int, _atk, ATK);                 // Attack
+
+
+  typedef struct _BoundingBox
+  {
+      cocos2d::Rect actual;
+      cocos2d::Rect original;
+  }BoundingBox;
+
+
+  CC_SYNTHESIZE(BoundingBox, _hitBox, HitBox);
+  CC_SYNTHESIZE(BoundingBox, _attackBox, AttackBox);
+
+  BoundingBox createBoundingBoxWithOrigin(cocos2d::Point origin, cocos2d::Size size);
 
 
 

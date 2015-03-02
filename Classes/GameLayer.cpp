@@ -3,7 +3,9 @@
 using namespace cocos2d;
 
 GameLayer::GameLayer()
-{}
+{
+    _map = NULL;
+}
 
 GameLayer::~GameLayer()
 {
@@ -17,6 +19,7 @@ bool GameLayer::init()
     do {
         CC_BREAK_IF(!Layer::init());
 
+        // Initialize the tile map.
         _map = TMXTiledMap::create("./Sprites/pd_tilemap.tmx");
         this->addChild(_map);
         
